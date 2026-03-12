@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meus Trabalhos | LKZ MÍDIA</title>
+
+    <link rel="stylesheet" href="./style/trabalho.css" />
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Meus Trabalhos</h1>
+      <p class="subtitle">Alguns projetos realizados pela LKZ MÍDIA</p>
+
+      <div class="trabalhos">
+        <div class="item">
+          <img src="./img/trabalho1.jpeg" loading="lazy" onclick="abrir(0)" />
+          <span>Trabalho 1</span>
+        </div>
+
+        <div class="item">
+          <img src="./img/trabalho2.png" loading="lazy" onclick="abrir(1)" />
+          <span>Trabalho 2</span>
+        </div>
+
+        <div class="item">
+          <img src="./img/trabalho3.jpg" loading="lazy" onclick="abrir(2)" />
+          <span>Trabalho 3</span>
+        </div>
+
+        <div class="item">
+          <img src="./img/trabalho4.jpg" loading="lazy" onclick="abrir(3)" />
+          <span>Trabalho 4</span>
+        </div>
+
+        <div class="item">
+          <img src="./img/trabalho5.jpg" loading="lazy" onclick="abrir(4)" />
+          <span>Trabalho 5</span>
+        </div>
+
+        <div class="item">
+          <img src="./img/trabalho6.jpg" loading="lazy" onclick="abrir(5)" />
+          <span>Trabalho 6</span>
+        </div>
+      </div>
+
+      <a href="index.html" class="link">Voltar</a>
+    </div>
+
+    <!-- MODAL -->
+
+    <div id="modal">
+      <span class="fechar" onclick="fechar()">✕</span>
+
+      <span class="seta esquerda" onclick="anterior()">❮</span>
+
+      <img id="imgModal" />
+
+      <span class="seta direita" onclick="proxima()">❯</span>
+    </div>
+
+    <script>
+      const imagens = [
+        "./img/trabalho1.jpeg",
+        "./img/trabalho2.png",
+        "./img/trabalho3.jpg",
+        "./img/trabalho4.jpg",
+        "./img/trabalho5.jpg",
+        "./img/trabalho6.jpg",
+      ];
+
+      let index = 0;
+
+      function abrir(i) {
+        index = i;
+
+        document.getElementById("modal").style.display = "flex";
+
+        document.getElementById("imgModal").src = imagens[index];
+      }
+
+      function fechar() {
+        document.getElementById("modal").style.display = "none";
+      }
+
+      function proxima() {
+        index++;
+
+        if (index >= imagens.length) {
+          index = 0;
+        }
+
+        document.getElementById("imgModal").src = imagens[index];
+      }
+
+      function anterior() {
+        index--;
+
+        if (index < 0) {
+          index = imagens.length - 1;
+        }
+
+        document.getElementById("imgModal").src = imagens[index];
+      }
+    </script>
+  </body>
+  <footer class="footer">
+    <p>© 2026 • Desenvolvido por <strong>@fabinhoow</strong></p>
+  </footer>
+</html>
